@@ -1,0 +1,28 @@
+{
+  "presets": [
+    "env",
+    "stage-0"
+  ],
+  "env": {
+    "targets": {
+      "node": "8.11.2"
+    },
+    "test": {
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  },
+  "plugins": [
+    "transform-runtime",
+    "transform-object-rest-spread",
+    "transform-decorators-legacy",
+    "add-module-exports",
+    [
+      "babel-plugin-transform-builtin-extend",
+      {
+        "globals": [ "Error", "Array" ]
+      }
+    ]
+  ]
+}
