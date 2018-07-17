@@ -1,5 +1,5 @@
 {
-  "name": "any-port",
+  "name": "port-me",
   "version": "0.0.1",
   "description": "Get an available port",
   "main": "./lib/index.js",
@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "build": "babel ./src -d ./lib",
-    "coverage": "nyc --reporter=html --reporter=text --reporter=text-lcov --reporter=lcov npm test | codacy-coverage --accountToken=$CODACY_API_TOKEN --username=$CODACY_USERNAME --projectName=any-port",
+    "coverage": "nyc --reporter=html --reporter=text --reporter=text-lcov --reporter=lcov npm test | codacy-coverage --accountToken=$CODACY_API_TOKEN --username=$CODACY_USERNAME --projectName=port-me",
     "prepublishOnly": "npm run tc && npm run build",
     "pretest": "standard | snazzy && eslint ./src",
     "report": "nyc npm test",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gavinvangent/any-port.git"
+    "url": "git+https://github.com/gavinvangent/port-me.git"
   },
   "keywords": [
     "port",
@@ -29,9 +29,9 @@
   "author": "Gavin van Gent",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gavinvangent/any-port/issues"
+    "url": "https://github.com/gavinvangent/port-me/issues"
   },
-  "homepage": "https://github.com/gavinvangent/any-port#readme",
+  "homepage": "https://github.com/gavinvangent/port-me#readme",
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "random-int": "^1.0.0"

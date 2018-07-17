@@ -13,7 +13,7 @@ export default function getPort () {
       break
     case 2:
       if (typeof arguments[0] !== 'object') {
-        throw new TypeError('When invoked with only 2 arguments, AnyPort expects the first argument to be an object')
+        throw new TypeError('When invoked with only 2 arguments, PortMe expects the first argument to be an object')
       }
 
       min = arguments[0].min || getPort.DEFAULT_MIN
@@ -32,11 +32,11 @@ export default function getPort () {
       maxAttempts = arguments[3]
       break
     default:
-      throw new SyntaxError('AnyPort has been invoked incorrectly')
+      throw new SyntaxError('PortMe has been invoked incorrectly')
   }
 
   if (typeof cb !== 'function') {
-    throw new TypeError('AnyPort expects a callback function to be specified as the last argument')
+    throw new TypeError('PortMe expects a callback function to be specified as the last argument')
   }
 
   const port = randomInt(min, max)
@@ -51,7 +51,7 @@ export default function getPort () {
       return getPort(min, max, cb, maxAttempts)
     }
 
-    cb(new Error('AnyPort could not find an available port'))
+    cb(new Error('PortMe could not find an available port'))
   })
 }
 
