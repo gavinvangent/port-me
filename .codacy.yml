@@ -1,4 +1,10 @@
 ---
 exclude_paths:
+  - 'test'
   - 'test/'
+  - 'test/*'
+  - 'test/**'
+  - 'test/**/'
+  - 'test/**/*'
+  - 'test/**/**'
   - '*.json'
