@@ -18,6 +18,7 @@ export default function getPort () {
 
       min = arguments[0].min || getPort.DEFAULT_MIN
       max = arguments[0].max || getPort.DEFAULT_MAX
+      maxAttempts = arguments[0].maxAttempts || maxAttempts
       cb = arguments[1]
       break
     case 3:
