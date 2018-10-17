@@ -45,10 +45,10 @@ describe('PortMe', () => {
       }
     })
 
-    it.skip('should throw a SyntaxError if four arguments are supplied', () => {
+    it('should throw a SyntaxError if five arguments are supplied', () => {
       try {
-        portMe(1555, 2000, () => {}, 'hello there')
-        assert.fail('Expected portMe(1555, 2000, () => {}, \'hello there\') to throw an error')
+        portMe(1555, 2000, () => {}, 5, 'hello there')
+        assert.fail('Expected portMe(1555, 2000, () => {}, 5, \'hello there\') to throw an error')
       } catch (err) {
         assert(err instanceof SyntaxError)
         assert.equal(err.message, 'PortMe has been invoked incorrectly')
