@@ -1,9 +1,11 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Build Status](https://travis-ci.org/gavinvangent/port-me.svg?branch=master)](https://travis-ci.org/gavinvangent/port-me)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1fc5f6e4b75c4e858abc8b3594afc750)](https://app.codacy.com/app/gavinvangent/port-me?utm_source=github.com&utm_medium=referral&utm_content=gavinvangent/port-me&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/1fc5f6e4b75c4e858abc8b3594afc750)](https://www.codacy.com/app/gavinvangent/port-me?utm_source=github.com&utm_medium=referral&utm_content=gavinvangent/port-me&utm_campaign=Badge_Coverage)
 [![GitHub issues](https://img.shields.io/github/issues/gavinvangent/port-me.svg)](https://github.com/gavinvangent/port-me/issues)
 [![GitHub stars](https://img.shields.io/github/stars/gavinvangent/port-me.svg)](https://github.com/gavinvangent/port-me/stargazers)
-[![npm](https://img.shields.io/npm/dw/localeval.svg)](https://www.npmjs.com/package/port-me)
+![npm](https://img.shields.io/npm/dw/port-me.svg)
+
 
 # port-me
 A nodejs library to get an available port
