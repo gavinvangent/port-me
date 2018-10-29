@@ -9,6 +9,11 @@ export default function getPort () {
 
   switch (arguments.length) {
     case 1:
+      if (typeof arguments[0] === 'object') {
+        min = arguments[0].min || min
+        max = arguments[0].max || max
+        maxAttempts = arguments[0].maxAttempts || maxAttempts
+      }
       cb = arguments[0]
       break
     case 2:
@@ -16,8 +21,8 @@ export default function getPort () {
         throw new TypeError('When invoked with only 2 arguments, PortMe expects the first argument to be an object')
       }
 
-      min = arguments[0].min || getPort.DEFAULT_MIN
-      max = arguments[0].max || getPort.DEFAULT_MAX
+      min = arguments[0].min || min
+      max = arguments[0].max || max
       maxAttempts = arguments[0].maxAttempts || maxAttempts
       cb = arguments[1]
       break
@@ -36,10 +41,6 @@ export default function getPort () {
       throw new SyntaxError('PortMe has been invoked incorrectly')
   }
 
-  if (typeof cb !== 'function') {
-    throw new TypeError('PortMe expects a callback function to be specified as the last argument')
-  }
-
   const port = randomInt(min, max)
 
   const server = net.createServer()
@@ -54,6 +55,18 @@ export default function getPort () {
 
     cb(new Error('PortMe could not find an available port'))
   })
+
+  if (typeof cb !== 'function') {
+    return new Promise((resolve, reject) => {
+      cb = err => {
+        if (err) {
+          return reject(err)
+        }
+
+        resolve(port)
+      }
+    })
+  }
 }
 
 getPort.DEFAULT_MIN = 1024
