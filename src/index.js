@@ -71,6 +71,6 @@ export default function getPort () {
   }
 }
 
-getPort.DEFAULT_MIN = 1024
+getPort.DEFAULT_MIN = 1025
 getPort.DEFAULT_MAX = 65535
 getPort.DEFAULT_MAX_ATTEMPTS = 50
