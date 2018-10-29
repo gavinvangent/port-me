@@ -17,6 +17,7 @@ describe('PortMe', () => {
 
     it('should return a promise if a single non-function argument is supplied', () => {
       const minPort = 1555
+
       return portMe(minPort)
         .then(port => {
           assert(port >= minPort, `Expected port to be equal or greater than ${minPort}, got ${port}`)
@@ -28,10 +29,41 @@ describe('PortMe', () => {
         min: 10000,
         max: 11000
       }
+
       return portMe(opts)
         .then(port => {
           assert(port >= opts.min, `Expected port to be equal or greater than ${opts.min}, got ${port}`)
           assert(port <= opts.max, `Expected port to be equal or less than ${opts.max}, got ${port}`)
+        })
+    })
+
+    it('should return a promise and reject if a port cant be found', () => {
+      const port = 10000
+      const opts = {
+        min: port,
+        max: port
+      }
+
+      const promise = (resolve, reject) => {
+        const server = net.createServer()
+        server.listen(port, 'localhost', () => {
+          resolve(server)
+        })
+        server.on('error', err => {
+          reject(err)
+        })
+      }
+
+      return new Promise(promise)
+        .then(server => {
+          return portMe(opts)
+            .then(port => {
+              server.close()
+              throw new Error('Expected an error to be throw, but wasn\'t')
+            }, err => {
+              server.close()
+              assert(err.message, 'asdf')
+            })
         })
     })
 
