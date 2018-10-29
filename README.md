@@ -51,7 +51,7 @@ To use all the defaults:
 import portMe from 'port-me'
 
 portMe((err, port) => {
-  console.log('port', port)
+  console.log(`port = ${port}`)
 })
 ```
 
@@ -63,7 +63,7 @@ const min = 5000
 const max = 5050
 
 portMe(min, max, (err, port) => {
-  console.log('port', port)
+  console.log(`port = ${port}`)
 })
 ```
 
@@ -76,7 +76,7 @@ const max = 5050
 const maxAttempts = 5
 
 portMe(min, max, (err, port) => {
-  console.log('port', port)
+  console.log(`port = ${port}`)
 }, maxAttempts)
 ```
 
@@ -91,7 +91,7 @@ const opts = {
 }
 
 portMe(opts, (err, port) => {
-  console.log('port', port)
+  console.log(`port = ${port}`)
 })
 ```
 
