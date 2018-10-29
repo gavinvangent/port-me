@@ -8,6 +8,8 @@ export default function getPort () {
   let maxAttempts = getPort.DEFAULT_MAX_ATTEMPTS
 
   switch (arguments.length) {
+    case 0:
+      break
     case 1:
       if (typeof arguments[0] === 'object') {
         min = arguments[0].min || min

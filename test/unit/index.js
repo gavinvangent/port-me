@@ -5,14 +5,12 @@ import portMe from '../../src/index'
 
 describe('PortMe', () => {
   describe('on invalid invocation', () => {
-    it('should throw a SyntaxError if no arguments are supplied', () => {
-      try {
-        portMe()
-        assert.fail('Expected portMe() to throw an error')
-      } catch (err) {
-        assert(err instanceof SyntaxError)
-        assert.equal(err.message, 'PortMe has been invoked incorrectly')
-      }
+    it('should return a promise if no arguments are supplied', () => {
+      return portMe()
+        .then(port => {
+          assert(port >= portMe.DEFAULT_MIN, `Expected the port to be equal or greater than ${portMe.DEFAULT_MIN}, got ${port}`)
+          assert(port <= portMe.DEFAULT_MAX, `Expected the port to be equal or less than ${portMe.DEFAULT_MAX}, got ${port}`)
+        })
     })
 
     it('should return a promise if a single non-function argument is supplied', () => {
