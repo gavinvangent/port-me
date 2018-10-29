@@ -23,6 +23,16 @@ describe('PortMe', () => {
     })
 
     it('should return a promise if a single object is supplied', () => {
+      const opts = {}
+
+      return portMe(opts)
+        .then(port => {
+          assert(port >= portMe.DEFAULT_MIN, `Expected the port to be equal or greater than ${portMe.DEFAULT_MIN}, got ${port}`)
+          assert(port <= portMe.DEFAULT_MAX, `Expected the port to be equal or less than ${portMe.DEFAULT_MAX}, got ${port}`)
+        })
+    })
+
+    it('should return a promise if a single object is supplied', () => {
       const opts = {
         min: 10000,
         max: 11000
