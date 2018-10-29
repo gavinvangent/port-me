@@ -29,7 +29,7 @@ portMe()
   .catch(err => console.log(`error = ${err.message}`))
 ```
 
-To use with [options](#options):
+To use an [options](#options) object instead:
 ```js
 import portMe from 'port-me'
 
