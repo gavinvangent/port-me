@@ -18,11 +18,40 @@ npm install port-me
 
 ## How to use
 
+### Promises
+
 To use all the defaults:
 ```js
 import portMe from 'port-me'
+
+portMe()
+  .then(port => console.log(`port = ${port}`))
+  .catch(err => console.log(`error = ${err.message}`))
+```
+
+To use an [options](#options) object instead:
+```js
+import portMe from 'port-me'
+
+const opts = {
+  min: 1025,
+  max: 65535,
+  maxAttempts: 50
+}
+
+portMe(opts)
+  .then(port => console.log(`port = ${port}`))
+  .catch(err => console.log(`error = ${err.message}`))
+```
+
+### Callbacks
+
+To use all the defaults:
+```js
+import portMe from 'port-me'
+
 portMe((err, port) => {
-  console.log('port', port)
+  console.log(`port = ${port}`)
 })
 ```
 
@@ -34,7 +63,7 @@ const min = 5000
 const max = 5050
 
 portMe(min, max, (err, port) => {
-  console.log('port', port)
+  console.log(`port = ${port}`)
 })
 ```
 
@@ -47,11 +76,11 @@ const max = 5050
 const maxAttempts = 5
 
 portMe(min, max, (err, port) => {
-  console.log('port', port)
+  console.log(`port = ${port}`)
 }, maxAttempts)
 ```
 
-To use an options object instead:
+To use an [options](#options) object instead:
 ```js
 import portMe from 'port-me'
 
@@ -62,17 +91,22 @@ const opts = {
 }
 
 portMe(opts, (err, port) => {
-  console.log('port', port)
+  console.log(`port = ${port}`)
 })
 ```
 
-## Defaults
-- Min port = 1024
-- Max port = 65535
-- Max attempts = 50
+## Options
+### min - *number {default: 1025}*
+
+The minimum number to use to find a port. This returned port will be equal or greater than this value.
+
+### max - *number {default: 65535}*
+
+The maximum number to use to find a port. This returned port will be equal or less than this value.
+
+### maxAttempts - *number {default: 50}*
+
+The maximum number of times portMe will attempt to find a port between the specified min and max values
 
 ## Caveat
 There is a very tiny chance of a race condition if another service starts using the same port number as you in between the time you get the port number and you actually start using it.
-
-## In the pipeline
-- Promises
