@@ -9,3 +9,4 @@ exclude_paths:
   - 'test/**/**'
   - '*.json'
   - '*.md'
+  - '*.yml'
