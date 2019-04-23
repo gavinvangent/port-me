@@ -8,3 +8,5 @@ exclude_paths:
   - 'test/**/*'
   - 'test/**/**'
   - '*.json'
+  - '*.md'
+  - '*.yml'

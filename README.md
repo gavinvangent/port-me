@@ -16,6 +16,8 @@ A nodejs library to get an available port
 npm install port-me
 ```
 
+Requires nodejs v6 or greater
+
 ## How to use
 
 ### Promises
